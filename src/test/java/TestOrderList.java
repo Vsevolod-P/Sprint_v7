@@ -1,21 +1,22 @@
-import io.restassured.http.ContentType;
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
+import io.restassured.response.Response;
 import org.junit.Test;
 
-import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
 public class TestOrderList {
 
-    private static final String BASE_URL = "https://qa-scooter.praktikum-services.ru/api/v1/orders?limit=5&page=0";
+    private OrderApi orderApi = new OrderApi(); // Создаем экземпляр OrderApi
 
     @Test
+    @Description("Получение не пустого списка")
+    @Step("Просто проверяем что получили 200 и какие-то данные")
     public void shouldReturnListOfOrders() {
-        given()
-                .contentType(ContentType.JSON)
-                .when()
-                .get(BASE_URL)
-                .then()
+        Response response = orderApi.getOrderList(5, 0); // Получаем список заказов
+
+        response.then()
                 .statusCode(200) // Проверка, что статус ответа 200 OK
-                .body("orders", notNullValue());
+                .body("orders", notNullValue()); // Проверка, что поле "orders" присутствует в ответе
     }
 }
