@@ -1,3 +1,8 @@
+package tests;
+
+import apiHelper.CourierApi;
+import apiHelper.CourierCreateApi;
+import apiHelper.Courier;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
@@ -16,7 +21,7 @@ public class TestCourierCreation {
     public void setUp() {
         // Создаем курьера перед каждым тестом
         CourierApi = new CourierApi();
-        courier = CourierApi.createCourier();
+        courier = CourierCreateApi.createCourier();
         isCourierCreated = false;
     }
    // Убрал, т.к. тут мы проверяем только одно создание курьера, в остальных тестах курьер не создается

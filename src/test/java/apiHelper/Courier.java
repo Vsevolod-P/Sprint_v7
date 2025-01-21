@@ -1,3 +1,4 @@
+package apiHelper;
 public class Courier {
 
     private String login;

@@ -1,3 +1,6 @@
+package tests;
+
+import apiHelper.OrderApi;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;

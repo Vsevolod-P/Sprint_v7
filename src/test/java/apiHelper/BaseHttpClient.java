@@ -1,3 +1,5 @@
+package apiHelper;
+
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -15,14 +17,14 @@ public abstract class BaseHttpClient {
                 .build();
 
 
-    protected Response doGetRequest(String path) {
+    public Response doGetRequest(String path) {
         return given()
                 .spec(baseRequestSpec)
                 .get(path)
                 .thenReturn();
     }
 
-    protected Response doPostRequest(String path, Object body) {
+    public Response doPostRequest(String path, Object body) {
         return given()
                 .spec(baseRequestSpec)
                 .body(body)

@@ -1,10 +1,12 @@
+package apiHelper;
+
 import io.restassured.response.Response;
 
 public class OrderApi extends BaseHttpClient {
-    static final String apiOrderPath = "/api/v1/orders";
+    static final String API_ORDER_PATH = "/api/v1/orders";
 
     public Response createOrder(Order order) {
-        return doPostRequest(apiOrderPath, order);
+        return doPostRequest(API_ORDER_PATH, order);
     }
 
     public Response getOrderList(int limit, int page) {
